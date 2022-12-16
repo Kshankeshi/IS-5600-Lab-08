@@ -2,10 +2,12 @@ const jwt = require('jsonwebtoken');
 const { promisify } = require('util');
 const User = require('../models/user');
 
+// Generate json web token and sign it with secret token stored in env file
 module.exports.generateJwtToken = (id) => {
 	return jwt.sign({ id }, process.env.TOKEN_SECRET);
 };
 
+// Register a new user and store the doc in db
 module.exports.register = async (req, res) => {
 	try {
 		const { username, password } = req.body || {};
@@ -29,6 +31,7 @@ module.exports.register = async (req, res) => {
 	}
 };
 
+// Login user by verifying user credentials
 module.exports.login = async (req, res) => {
 	try {
 		const { username, password } = req.body || {};
@@ -52,6 +55,7 @@ module.exports.login = async (req, res) => {
 	}
 };
 
+// authenticate users by verifying auth token and user
 module.exports.authenticate = async (req, res, next) => {
 	try {
 		const { authorization } = req.headers;
@@ -76,6 +80,7 @@ module.exports.authenticate = async (req, res, next) => {
 	}
 };
 
+// check if user have authorized role
 module.exports.authorize = (role) => async (req, res, next) => {
 	if (req.user.role.toUpperCase() !== role) {
 		return res.status(403).json({ message: 'You are not authorized to do this!' });
