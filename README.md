@@ -19,7 +19,7 @@ A MERN stack quiz application built with node.js, express.js, mongodb and react.
 ## Installation
 
 ```
-git clone https://github.com/Kshankeshi/quizly
+git clone https://github.com/Kshankeshi/IS-5600-Lab-08
 cd quizly
 npm install
 
