@@ -1,6 +1,7 @@
 # Quizly
 
-A MERN stack quiz application built with node.js, express.js, mongodb and react.js
+A MERN stack quiz application built with node.js, express.js, mongodb, react.js, redux & bootstrap
+
 
 ## Features
 
